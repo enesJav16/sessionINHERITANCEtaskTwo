@@ -16,14 +16,10 @@ public class Main {
         Tech tech = new Tech();
 
         Phone phone1 = new Phone("Note 10","Samsung","1.12.34",1,"black","12345");
-        Phone phone2 = new Phone();
 
-        Computer computer1 = new Computer("Ideapad","Lenovo","21.21.21",1,40);
-        Computer computer2 = new Computer();
+        Computer computer1 = new Computer("Ideapad","Lenovo","21.21.21",1,40,"12345");
 
         SmartWatch watch1 = new SmartWatch("Smartwach","Samsung","1.6.5",0,200);
-        SmartWatch watch2 = new SmartWatch();
-
 
         boolean check = true;
         while (check) {
@@ -35,7 +31,7 @@ public class Main {
                    phone1.turnOnOff(phone1.getPassword());
                    break;
                 case 2:
-                    computer1.turnOnOff(computer1.getName());
+                    computer1.turnOnOff(computer1.getPassword());
                     break;
                 case 3:
                     watch1.turnOnOff(watch1.getName());

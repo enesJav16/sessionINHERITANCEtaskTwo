@@ -6,13 +6,17 @@ public class Tech {
     private String version;
     private int type;
 
-    public Tech(){}
+    Scanner scanner1 = new Scanner(System.in);
+    Scanner scanner2 = new Scanner(System.in);
 
-    public Tech(String name, String brand, String version,int type) {
+    public Tech() {
+    }
+
+    public Tech(String name, String brand, String version, int type) {
         this.name = name;
         this.brand = brand;
         this.version = version;
-        this.type=type;
+        this.type = type;
     }
 
     public void setName(String name) {
@@ -27,8 +31,8 @@ public class Tech {
         this.brand = brand;
     }
 
-    public void setType(int type){
-        this.type=type;
+    public void setType(int type) {
+        this.type = type;
     }
 
     public String getName() {
@@ -42,51 +46,45 @@ public class Tech {
     public String getBrand() {
         return brand;
     }
-    int getType(){
+
+    int getType() {
         return type;
     }
 
 
-
-    void turnOnOff(String password){
+    void turnOnOff(String password) {
         System.out.println("What do you want to do turn on(1) or turn off(0)");
-        int input= new Scanner(System.in).nextInt();
-        if(input==1||input==0) {
-            boolean onOff=true;
-            if(input==1){
-                onOff=true;
-            } else if (input==0) {
-                onOff=false;
-            }
+        int input = scanner1.nextInt();
+        if (input == 1 || input == 0) {
 
             if (this.type == 1) {
-                boolean passCheck = false;
+
                 System.out.println("Give password:");
+                boolean passCheck=false;
                 do {
-                    String passInput = new Scanner(System.in).nextLine();
+                    String passInput = scanner2.nextLine();
                     if (passInput.equals(password)) {
                         passCheck = true;
                     } else {
                         System.out.println("Password is incorrect.");
+                        passCheck =false;
                     }
-                } while (passCheck);
+                } while (!passCheck);
 
-
-                if (onOff) {
-                    System.out.println(name + " is on.");
-                } else {
-                    System.out.println(this.name + " is off.");
-                }
-            } else {
-                if (onOff) {
-                    System.out.println(this.name + " is on.");
-                } else {
-                    System.out.println(this.name + " is off.");
-                }
+                sout(input);
+            }else{
+                sout(input);
             }
-        }
-        else{
+
+        } else {
             System.out.println("Error");
+        }
+    }
+    public void sout(int input){
+        if (input == 1 ) {
+            System.out.println(this.name + " is on.");
+        } else if (input == 0 ) {
+            System.out.println(this.name + " is off.");
         }
     }
 }
